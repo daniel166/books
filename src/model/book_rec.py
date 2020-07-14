@@ -3,11 +3,11 @@ import pandas as pd
 import numpy as np
 
 # load ratings
-ratings = pd.read_csv('Downloads/BX-Book-Ratings.csv', encoding='cp1251', sep=';')
+ratings = pd.read_csv('../../data/raw/BX-Book-Ratings.csv', encoding='cp1251', sep=';')
 ratings = ratings[ratings['Book-Rating'] != 0]
 
 # load books
-books = pd.read_csv('Downloads/BX-Books.csv', encoding='cp1251', sep=';', error_bad_lines=False)
+books = pd.read_csv('../../data/raw/BX-Books.csv', encoding='cp1251', sep=';', error_bad_lines=False)
 
 # users_ratigs = pd.merge(ratings, users, on=['User-ID'])
 dataset = pd.merge(ratings, books, on=['ISBN'])
