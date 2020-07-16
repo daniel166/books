@@ -15,10 +15,11 @@ def main(title: List[str]):
     # book name can be ambiguous, same title different authors
     authors = books.authors(title)
     if len(authors) > 1:
-        author = typer.prompt(f'{title} is ambigious. Please specify author surname. Posibilities are: {authors}:')
+        author = typer.prompt(f'{title} is ambiguous. Please specify author surname. Possibilities are: {authors}')
+        if author.lower() not in authors:
+            raise ValueError("Invalid author")
     else:
         author = list(authors)[0].lower()
-        # TODO check if user typed correct author name
 
     books.recommend(title, author)
 
