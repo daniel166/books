@@ -64,7 +64,7 @@ class Books:
             if dataset_for_corr.shape[1] == 1:
                 print('Sorry, there is not enough books for recommendation')
                 sys.exit(1)
+            return my_df.sort_values(ascending=False).head(11).index[1:].tolist()
         except KeyError:
             print('Sorry, not enough ratings')
             sys.exit(1)
-        return my_df.sort_values(ascending=False).head(11).index[1:].tolist()
