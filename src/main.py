@@ -4,7 +4,6 @@ from model.Books import Books
 
 
 def main(title: List[str]):
-    typer.echo(f'Book title: {title}')
     title = ' '.join(title).lower()
     books = Books()
 
@@ -21,7 +20,9 @@ def main(title: List[str]):
     else:
         author = list(authors)[0].lower()
 
-    books.recommend(title, author)
+    books_rec = books.recommend(title, author)
+    print('Recommendations:')
+    print('\n'.join(books_rec))
 
 
 if __name__ == "__main__":
